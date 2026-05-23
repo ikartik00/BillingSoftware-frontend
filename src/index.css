@@ -1,0 +1,24 @@
+*{
+    font-family: "Outfit";
+}
+.cartItems::-webkit-scrollbar{
+    display: none
+}
+
+.dashboardScroll::-webkit-scrollbar{
+    display: none
+}
+
+.DashboardneechekaScroll::-webkit-scrollbar{
+    display: none
+}
+.categoryScroll::-webkit-scrollbar{
+    display: none
+}
+.itemsScroll::-webkit-scrollbar{
+    display: none
+}
+.usersScroll::-webkit-scrollbar{
+    display: none
+}
+@import "tailwindcss";
