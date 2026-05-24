@@ -5,7 +5,7 @@ export const AppContext = createContext(null);
 
 const AppContextProvider = ({ children }) => {
     const [categories, setCategories] = useState([])
-    const [auth, setAuth] = useState({ token: null, role: null })
+    const [auth, setAuth] = useState({ token: localStorage.getItem("token"), role: localStorage.getItem("role") })
     const [userData, setUserData] = useState(null)
     const [loadingUser, setLoadingUser] = useState(false)
     const [items, setItems] = useState([])

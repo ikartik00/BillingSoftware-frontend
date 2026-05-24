@@ -21,6 +21,10 @@ const ProtectedRoute = ({ element, allowedRoles }) => {
   const token = auth.token || localStorage.getItem("token")
   const role = auth.role || localStorage.getItem("role")
 
+   console.log("Token:", token)
+  console.log("Role:", role)
+  console.log("AllowedRoles:", allowedRoles)
+
   if (!token) {
     return <Navigate to={"/login"} />
   }
