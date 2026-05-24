@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Items from './Items'
 import SearchBox from '../Component/SearchBox';
 
-const DisplayItems = ({ items, selectedCategory }) => {
+const DisplayItems = ({ items, selectedCategory, loadItems }) => {
   const [searchValue, setSearchValue] = useState("")
 
   const handleChange = (e) => {
@@ -20,7 +20,8 @@ const DisplayItems = ({ items, selectedCategory }) => {
         <SearchBox searchValue={searchValue} handleChange={handleChange} />
       </div>
       <div className='flex gap-2 flex-wrap overflow-y-auto h-full'>
-        {filteredItems.map(item => (
+        {loadItems && <h1 className='text-white font-bold text-center'>Loading....</h1>}
+        {!loadItems && filteredItems.map(item => (
           // <div key={item.itemId} className='sm:w-65 w-full hover:scale-102 duration-300'>
             <Items key={item.itemId} itemId = {item.itemId} name={item.name} price={item.price} imgUrl={item.imgUrl} stock = {item.availableStock} />
           // </div>

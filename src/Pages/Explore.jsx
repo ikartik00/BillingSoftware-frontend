@@ -8,7 +8,7 @@ import CartSummary from '../Component/CartSummary';
 import SearchBox from '../Component/SearchBox';
 
 const Explore = () => {
-  const { categories, loadItemsfunction, loadCategories } = useContext(AppContext);
+  const { categories, loadItemsfunction, loadCategories, loadCategory, loadItems} = useContext(AppContext);
   const { items } = useContext(AppContext);
   const [selectedCategory, setSelectedCategory] = useState("")
   const [customerName, setCustomerName] = useState("")
@@ -24,11 +24,11 @@ const Explore = () => {
     <div className='w-full lg:h-[calc(100vh-80px)] h-full  text-white bg-black/90 p-3 flex md:flex-row flex-col gap-2'>
       <div className='left border p-3 border-white rounded-md lg:w-[70%] md:w-[60%] w-full h-full'>
         <div className='first-row overflow-y-auto lg:h-[40%] h-100 w-full py-3'>
-          <DisplayCategory categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+          <DisplayCategory categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} loadCategory = {loadCategory} />
         </div>
         <hr className='text-white/40' />
         <div className='second-row lg:h-[60%] h-100 py-2 mt-2'>
-          <DisplayItems items={items} selectedCategory={selectedCategory} />
+          <DisplayItems items={items} selectedCategory={selectedCategory} loadItems = {loadItems} />
         </div>
       </div>
       <div className='right lg:w-[30%] md:w-[40%] w-full p-2 border border-white rounded-md'>

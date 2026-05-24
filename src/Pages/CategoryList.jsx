@@ -52,7 +52,7 @@ const CategoryList = () => {
             </div>
             <div className='overflow-y-auto h-full flex gap-3 flex-col categoryScroll'>
                 {loadCategory && <h1 className='text-white font-bold text-center'>Loading .......</h1>}
-                {filteredCategories.length > 0 ? filteredCategories.map((category) => (
+                {!loadCategory && filteredCategories.length > 0 ? filteredCategories.map((category) => (
                     <div key={category.categoryId}>
                         <div style={{ backgroundColor: category.bgColor }} className='flex justify-between items-center rounded-md px-3 py-4'>
                             <div className='flex gap-3'>
