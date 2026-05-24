@@ -23,8 +23,8 @@ const Navbar = () => {
 
     return (
         <div className='relative'>
-            <nav className='bg-black flex gap-15 items-center justify-between'>
-                <div className='flex items-center gap-10'>
+            <nav className='bg-black flex gap-9 items-center justify-between'>
+                <div className='flex items-center gap-8'>
                     <div className="h-20 select-none">
                         <img className='h-full' src={billinglogo} alt="" />
                     </div>
