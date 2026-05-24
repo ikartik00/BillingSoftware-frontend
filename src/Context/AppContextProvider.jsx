@@ -11,6 +11,7 @@ const AppContextProvider = ({ children }) => {
     const [items, setItems] = useState([])
     const [loadItems, setLoadItems] = useState(false)
     const [cartItems, setCartItems] = useState([])
+    const [loadCategory, setLoadCategory] = useState(false)
     const navigate = useNavigate()
 
     const setAuthData = (token, role) => {
@@ -50,6 +51,7 @@ const AppContextProvider = ({ children }) => {
 
     async function loadCategories() {
         try {
+            setLoadCategory(true)
             let response = await fetch("https://billingsoftware-backend-production.up.railway.app/categories/all", {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -62,6 +64,8 @@ const AppContextProvider = ({ children }) => {
         } catch (error) {
             console.log("Error in api", error);
             setCategories([])
+        }finally{
+            setLoadCategory(false)
         }
     }
 
@@ -122,7 +126,7 @@ const AppContextProvider = ({ children }) => {
 
 
     return (
-        <AppContext.Provider value={{ categories, setCategories, setAuthData, auth, setAuth, getLoggedInUser, loadingUser, loadCategories, userData, loadItems, setLoadItems, loadItemsfunction, items, setItems, addToCart, cartItems, removeFromCart, updateQuantity, clearCart, setCartItems, setUserData }}>
+        <AppContext.Provider value={{ categories, setCategories, setAuthData, auth, setAuth, getLoggedInUser, loadingUser, loadCategories, userData, loadItems, setLoadItems, loadItemsfunction, items, setItems, addToCart, cartItems, removeFromCart, updateQuantity, clearCart, setCartItems, setUserData, loadCategory, setLoadCategory }}>
             {children}
         </AppContext.Provider>
     )

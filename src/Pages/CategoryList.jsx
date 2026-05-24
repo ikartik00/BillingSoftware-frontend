@@ -5,7 +5,7 @@ import { Search } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 const CategoryList = () => {
-    const { categories, setCategories, loadCategories } = useContext(AppContext);
+    const { categories, setCategories, loadCategories, loadCategory } = useContext(AppContext);
     const [searchValue, setSearchValue] = useState("")
     const [filtered, setFiltered] = useState([])
 
@@ -51,6 +51,7 @@ const CategoryList = () => {
                 <span className='px-3 py-2 bg-yellow-600 text-black rounded-r-md'><Search /></span>
             </div>
             <div className='overflow-y-auto h-full flex gap-3 flex-col categoryScroll'>
+                {loadCategory && <h1 className='text-white font-bold text-center'>Loading .......</h1>}
                 {filteredCategories.length > 0 ? filteredCategories.map((category) => (
                     <div key={category.categoryId}>
                         <div style={{ backgroundColor: category.bgColor }} className='flex justify-between items-center rounded-md px-3 py-4'>

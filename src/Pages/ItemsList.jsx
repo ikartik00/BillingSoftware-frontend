@@ -52,6 +52,7 @@ const ItemsList = () => {
         <span className='px-3 py-2 bg-yellow-600 text-black rounded-r-md'><Search /></span>
       </div>
       <div className='overflow-y-auto h-full flex gap-3 flex-col itemsScroll'>
+        {loadItems && <h1 className='text-white font-bold text-center'>Loading....</h1>}
         {filteredItems.length > 0 ? filteredItems.map((item) => (
           <div key={item.itemId}>
             <div className='bg-black text-white flex justify-between items-center rounded-md px-3 py-4'>

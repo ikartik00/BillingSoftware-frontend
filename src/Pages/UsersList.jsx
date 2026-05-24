@@ -48,6 +48,7 @@ const UsersList = ({ users, setUsers, loadingUsers, setLoadingUsers }) => {
                 <span className='px-3 py-2 bg-yellow-600 text-black rounded-r-md'><Search /></span>
             </div>
             <div className='overflow-y-auto h-full flex gap-3 flex-col usersScroll'>
+                {loadingUsers && <h1 className='text-white font-bold text-center'>Loading....</h1>}
                 {filteredUsers.length > 0 ? filteredUsers.map((user) => (
                     <div key={user.userId}>
                         <div className='flex justify-between bg-gray-400 items-center rounded-md px-3 py-4'>
