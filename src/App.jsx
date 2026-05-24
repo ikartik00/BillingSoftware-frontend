@@ -18,7 +18,10 @@ import Setting from './Pages/Setting'
 
 const ProtectedRoute = ({ element, allowedRoles }) => {
   const { auth } = useContext(AppContext)
-  if (!auth && !auth.token) {
+  const token = auth.token || localStorage.getItem("token")
+  const role = auth.role || localStorage.getItem("role")
+
+  if (!token) {
     return <Navigate to={"/login"} />
   }
   if (allowedRoles && !allowedRoles.includes(auth.role)) {
