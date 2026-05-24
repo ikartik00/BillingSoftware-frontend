@@ -37,10 +37,10 @@ const Navbar = () => {
                                     <li><NavLink to={"/items"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>MANAGE ITEMS</NavLink></li>
                                     <li><NavLink to={"/categories"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>MANAGE CATEGORIES</NavLink></li>
                                     <li><NavLink to={"/users"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>MANAGE USERS</NavLink></li>
-                                    <li><NavLink to={"/add-stock"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>Add Stock</NavLink></li>
+                                    <li><NavLink to={"/add-stock"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>ADD STOCK</NavLink></li>
                                 </>
                             )}
-                            <li><NavLink to={"/order-history"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>Order History</NavLink></li>
+                            <li><NavLink to={"/order-history"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>ORDER HISTORY</NavLink></li>
 
                         </ul>
                     </div>
@@ -70,10 +70,10 @@ const Navbar = () => {
                                 <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/items"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>MANAGE ITEMS</NavLink></li>
                                 <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/categories"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>MANAGE CATEGORIES</NavLink></li>
                                 <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/users"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>MANAGE USERS</NavLink></li>
-                                 <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/add-stock"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>Add Stock</NavLink></li>
+                                 <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/add-stock"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>ADD STOCK</NavLink></li>
                             </>
                         )}
-                        <li><NavLink to={"/order-history"} onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>Order History</NavLink></li>
+                        <li><NavLink to={"/order-history"} onClick={() => setIsMenuOpen(false)} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>ORDER HISTORY</NavLink></li>
                     </ul>
                 </div>
             )}
