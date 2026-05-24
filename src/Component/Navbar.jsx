@@ -29,7 +29,7 @@ const Navbar = () => {
                         <img className='h-full' src={billinglogo} alt="" />
                     </div>
                     <div>
-                        <ul className='lg:flex gap-10 hidden'>
+                        <ul className='lg:flex gap-6 hidden'>
                             <li><NavLink to={"/dashboard"} className={({ isActive }) => isActive ? "text-yellow-600  font-bold text-md" : "text-gray-400 font-semibold text-md"}>DASHBOARD</NavLink></li>
                             <li><NavLink to={"/explore"} className={({ isActive }) => isActive ? "text-yellow-600 font-bold text-md" : "text-gray-400 font-semibold text-md"}>EXPLORE</NavLink></li>
                             {auth && auth.role === "ADMIN" && (
