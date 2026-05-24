@@ -53,7 +53,7 @@ const ItemsList = () => {
       </div>
       <div className='overflow-y-auto h-full flex gap-3 flex-col itemsScroll'>
         {loadItems && <h1 className='text-white font-bold text-center'>Loading....</h1>}
-        {filteredItems.length > 0 ? filteredItems.map((item) => (
+        {!loadItems && filteredItems.length > 0 ? filteredItems.map((item) => (
           <div key={item.itemId}>
             <div className='bg-black text-white flex justify-between items-center rounded-md px-3 py-4'>
               <div className='flex gap-3'>
@@ -69,7 +69,7 @@ const ItemsList = () => {
               <button className='bg-red-500 cursor-pointer text-white p-2 rounded-md' onClick={() => handleDelete(item.itemId)}><Trash2 /></button>
             </div>
           </div>
-        )) : <h2 className='text-white font-bold text-center'>No Items Found</h2>}
+        )) : (!loadItems && <h2 className='text-white font-bold text-center'>No Items Found</h2>)}
       </div>
     </div>
   )

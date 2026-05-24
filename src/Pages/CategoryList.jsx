@@ -67,7 +67,7 @@ const CategoryList = () => {
                             <button className='bg-red-500 cursor-pointer text-white p-2 rounded-md' onClick={() => handleDelete(category.categoryId)}><Trash2 /></button>
                         </div>
                     </div>
-                )) : <h2 className='text-white font-bold text-center'>No Product Found</h2>}
+                )) : (!loadCategory && <h2 className='text-white font-bold text-center'>No Product Found</h2>)}
             </div>
         </div>
     )

@@ -61,7 +61,7 @@ const UsersList = ({ users, setUsers, loadingUsers, setLoadingUsers }) => {
                             <button className='bg-red-500 cursor-pointer text-white p-2 rounded-md' onClick={() => handleDelete(user.userId)}><Trash2 /></button>
                         </div>
                     </div>
-                )) : <h2 className='text-white font-bold text-center'>No Users Found</h2>}
+                )) : (!loadingUsers && <h2 className='text-white font-bold text-center'>No Users Found</h2>)}
             </div>
         </div>
     )

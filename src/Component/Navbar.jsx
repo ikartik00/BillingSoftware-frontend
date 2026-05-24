@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className='relative'>
             <nav className='bg-black flex gap-15 items-center justify-between'>
                 <div className='flex items-center gap-10'>
-                    <div className="h-20">
+                    <div className="h-20 select-none">
                         <img className='h-full' src={billinglogo} alt="" />
                     </div>
                     <div>
@@ -45,7 +45,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='flex gap-3 items-center'>
+                <div className='flex gap-3 items-center select-none'>
                     <Menu className='lg:hidden flex text-white cursor-pointer' size={32} onClick={() => setIsMenuOpen(!isMenuOpen)} />
                     <div className='flex text-white  justify-center items-center cursor-pointer' onClick={() => setShowDropDown(!showDropDown)}>
                         <span><img src={userImage} alt="" className='w-12' /></span>
@@ -53,16 +53,16 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            {showDropDown && <div className='flex flex-col gap-2 bg-white w-70 rounded-xl text-black font-semibold px-4 py-2 absolute top-18 right-3 z-10'>
+            {showDropDown && <div className='flex flex-col gap-2 bg-white w-70 rounded-xl text-black font-semibold px-4 py-2 absolute top-18 right-3 z-10 select-none'>
                 <p className='cursor-pointer' onClick={()=>{navigate("/setting"); setShowDropDown(false)}}>Settings</p>
                 <p className='cursor-pointer'>Activity log</p>
                 <hr />
                 <p className='cursor-pointer' onClick={logoutHandler}>Logout</p>
             </div>}
             {isMenuOpen && (
-                <div className='lg:hidden flex flex-col gap-2 bg-red-500 px-2 py-1 absolute top-20 w-full z-2'>
-                    <ul className='flex gap-3 flex-col'>
-                        <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/dashboard"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>DASHBOARD</NavLink></li>
+                <div className='lg:hidden flex flex-col gap-2 bg-black px-2 py-1 absolute top-20 w-full z-2'>
+                    <ul className='flex gap-3 flex-col select-none'>
+                        <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/dashboard"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold select-none text-lg"}>DASHBOARD</NavLink></li>
                         <li onClick={() => setIsMenuOpen(false)}><NavLink to={"/explore"} className={({ isActive }) => isActive ? "text-white font-bold text-lg" : "text-gray-400 font-semibold text-lg"}>EXPLORE</NavLink></li>
 
                         {auth.role === "ADMIN" && (
