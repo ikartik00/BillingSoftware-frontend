@@ -5,6 +5,7 @@ import { Search } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 const ItemsList = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { items, setItems, loadItems, setLoadItems, loadItemsfunction } = useContext(AppContext)
 
   const [searchValue, setSearchValue] = useState("")
@@ -18,7 +19,7 @@ const ItemsList = () => {
 
   const handleDelete = async (itemId) => {
     try {
-      let response = await fetch(`https://billingsoftware-backend-production.up.railway.app/admin/items/delete/${itemId}`, {
+      let response = await fetch(`${API_URL}/admin/items/delete/${itemId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${localStorage.getItem("token")}`

@@ -4,6 +4,7 @@ import { ClockFading, IndianRupee, ShoppingCart } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const Dashboard = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const { userData, setLoadingUser, LoadingUser } = useContext(AppContext)
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState([])
@@ -12,7 +13,7 @@ const Dashboard = () => {
     const loadDashBoardData = async () => {
       try {
         setLoading(false)
-        let response = await fetch("https://billingsoftware-backend-production.up.railway.app/dashboard/", {
+        let response = await fetch(`${API_URL}/dashboard/`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem("token")}`
           }

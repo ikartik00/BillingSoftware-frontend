@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast'
 import { AppContext } from '../Context/AppContextProvider';
 
 const CategoryForm = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const imageRef = useRef();
     const [loading, setLoading] = useState(false)
     const { categories, setCategories, loadCategories } = useContext(AppContext)
@@ -31,7 +32,7 @@ const CategoryForm = () => {
         formmData.append("file", image)
         const addCategory = async () => {
             try {
-                let response = await fetch("https://billingsoftware-backend-production.up.railway.app/admin/categories/add_category", {
+                let response = await fetch(`${API_URL}/admin/categories/add_category`, {
                     method: "POST",
                     body: formmData,
                     headers: {

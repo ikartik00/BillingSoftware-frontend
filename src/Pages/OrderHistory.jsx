@@ -7,6 +7,7 @@ const OrderHistory = () => {
     const [page, setPage] = useState(0);
     const [last, setLast] = useState(false)
     const [loadingMore, setLoadingMore] = useState(false)
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         const loadAllOrders = async () => {
@@ -14,7 +15,7 @@ const OrderHistory = () => {
                 if (page == 0) {
                     setloading(true)
                 }
-                let response = await fetch(`https://billingsoftware-backend-production.up.railway.app/orders/all-orders?page=${page}&size=10`, {
+                let response = await fetch(`${API_URL}/orders/all-orders?page=${page}&size=10`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem("token")}`
                     }

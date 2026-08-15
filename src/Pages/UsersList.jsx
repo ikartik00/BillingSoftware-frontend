@@ -5,12 +5,14 @@ import { Search } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 
+
 const UsersList = ({ users, setUsers, loadingUsers, setLoadingUsers }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [searchValue, setSearchValue] = useState("")
 
     const handleDelete = async (userId) => {
         try {
-            let response = await fetch(`https://billingsoftware-backend-production.up.railway.app/admin/users/delete/${userId}`, {
+            let response = await fetch(`${API_URL}/admin/users/delete/${userId}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`

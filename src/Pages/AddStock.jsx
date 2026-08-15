@@ -4,6 +4,7 @@ import { PulseLoader } from 'react-spinners'
 import toast from 'react-hot-toast'
 
 const AddStock = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const { loadItemsfunction, items, setItems } = useContext(AppContext)
     const [loading, setLoading] = useState(false)
     const [selectedItem, setSelectedItem] = useState("")
@@ -33,7 +34,7 @@ const AddStock = () => {
 
         try {
             setLoading(true)
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/admin/add-stock", {
+            let response = await fetch(`${API_URL}/admin/add-stock`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`,

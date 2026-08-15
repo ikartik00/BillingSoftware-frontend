@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { PulseLoader } from 'react-spinners'
 
+
 const UsersForm = ({users, setUsers}) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [loading, setLoading] = useState(false)
     const [errors, setErrors] = useState(null)
     const [formData, setFormData] = useState({
@@ -37,7 +39,7 @@ const UsersForm = ({users, setUsers}) => {
         }
         try{
             setLoading(true)
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/admin/register", {
+            let response = await fetch(`${API_URL}/admin/register`, {
                 method  : "POST",
                 headers : {
                     "Authorization" : `Bearer ${localStorage.getItem("token")}`,

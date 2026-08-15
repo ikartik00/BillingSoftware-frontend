@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export const AppContext = createContext(null);
 
 const AppContextProvider = ({ children }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [categories, setCategories] = useState([])
     const [auth, setAuth] = useState({ token: localStorage.getItem("token"), role: localStorage.getItem("role") })
     const [userData, setUserData] = useState(null)
@@ -22,7 +23,7 @@ const AppContextProvider = ({ children }) => {
         try {
             setUserData(null)
             setLoadingUser(true)
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/profile", {
+            let response = await fetch(`${API_URL}/profile`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
@@ -52,7 +53,7 @@ const AppContextProvider = ({ children }) => {
     async function loadCategories() {
         try {
             setLoadCategory(true)
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/categories/all", {
+            let response = await fetch(`${API_URL}/categories/all`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
@@ -72,7 +73,7 @@ const AppContextProvider = ({ children }) => {
     async function loadItemsfunction() {
         try {
             setLoadItems(true)
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/items", {
+            let response = await fetch(`${API_URL}/items`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }

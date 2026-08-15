@@ -7,6 +7,7 @@ import {PulseLoader} from 'react-spinners'
 
 const Login = () => {
     const navigate = useNavigate("")
+    const API_URL = import.meta.env.VITE_API_URL;
     const { setAuthData, getLoggedInUser } = useContext(AppContext)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState({})
@@ -37,7 +38,7 @@ const Login = () => {
 
         setLoading(true)
         try {
-            let response = await fetch("https://billingsoftware-backend-production.up.railway.app/login", {
+            let response = await fetch(`${API_URL}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
